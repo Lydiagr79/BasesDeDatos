@@ -25,7 +25,7 @@ select player_name,max(fechaUltimoPartido) as fechaUltimoPartido,min(fechaPrimer
     GROUP BY t.team_api_id,t.team_long_name,player_api_id,player_name
 
 ) as t1
---where team_long_name like '%Barcelona%'
+where team_long_name like '%Betis%'
 group by t1.player_name,t1.player_api_id
 order by fechaUltimoPartido desc
 
