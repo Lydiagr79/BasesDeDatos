@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/mssql/server
+FROM mcr.microsoft.com/mssql/server:2017-latest
 COPY ./nba.csv .
 COPY ./players.csv .
 COPY ./randomperson.csv .

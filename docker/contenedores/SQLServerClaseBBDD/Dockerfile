@@ -1,5 +1,5 @@
 #FROM microsoft/mssql-server-linux
-FROM mcr.microsoft.com/mssql/server
+FROM mcr.microsoft.com/mssql/server:2017-latest
 COPY ./data/ ./var/opt/mssql/backup/
 COPY ./entrypoint.sh .
 COPY ./CargarDatos.sql .

@@ -1,5 +1,5 @@
 #FROM microsoft/mssql-server-linux
-FROM mcr.microsoft.com/mssql/server
+FROM mcr.microsoft.com/mssql/server:2017-latest
 COPY ./entrypoint.sh .
 COPY ./arepazo.sql .
 ENV ACCEPT_EULA=Y
