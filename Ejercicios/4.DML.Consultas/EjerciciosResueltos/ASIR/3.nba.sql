@@ -53,6 +53,19 @@ group by pais
 order by NumJugadores desc
 --7.top 10 de los jugadores con más puntos por partido
 
+
+select top 10 j.idjugador, j.nombre ,avg(puntos +0.0 ) from EstadisticasPartidos e
+inner join jugadores j on e.idjugador=j.idjugador
+where minutos_jugados >0
+group by j.idjugador, j.nombre
+order by avg(puntos +0.0 ) desc
+
+
+
+
+
+
+
 SELECT TOP 10 J.NOMBRE,MAX(PUNTOS) 
 FROM EstadisticasPartidos 
 INNER JOIN JUGADORES J ON J.IDJUGADOR=EstadisticasPartidos.idjugador
@@ -61,14 +74,26 @@ ORDER BY MAX(PUNTOS) DESC
 
 --8.top 10 Jugadores con mas asistencias por partido
 
-SELECT TOP 10 J.NOMBRE,MAX(asistencias) 
+SELECT TOP 10 J.NOMBRE,max(asistencias) 
 FROM EstadisticasPartidos 
 INNER JOIN JUGADORES J ON J.IDJUGADOR=EstadisticasPartidos.idjugador
 GROUP BY J.IDJUGADOR, J.NOMBRE 
-ORDER BY MAX(ASISTENCIAS) DESC
+ORDER BY avg(ASISTENCIAS) DESC
 
 
 --9.Top 10 de jugadores con mas triples por minuto jugado
+SELECT TOP 10 J.NOMBRE,(sum(triples)+0.0)/sum(minutos_jugados) as triplesporminutos
+FROM EstadisticasPartidos 
+INNER JOIN JUGADORES J ON J.IDJUGADOR=EstadisticasPartidos.idjugador
+where minutos_jugados >0
+GROUP BY J.IDJUGADOR, J.NOMBRE 
+ORDER BY triplesporminutos DESC
+
+
+
+
+
+
 SELECT  J.NOMBRE,(SUM(triples)+0.0)/SUM(minutos_jugados) AS TRIPLESPORMINUTO 
 FROM EstadisticasPartidos 
 INNER JOIN JUGADORES J ON J.IDJUGADOR=EstadisticasPartidos.idjugador
@@ -79,18 +104,22 @@ ORDER BY TRIPLESPORMINUTO DESC
 
 --10.Jugador mas bajito de la NBA
 
+
 SELECT TOP 1 * FROM JUGADORES WHERE ALTURA IS NOT NULL ORDER BY ALTURA 
 
 --11.Equipo con mas puntos por partido
-select top 1 idequipo,nombre,sum(puntos) from 
+
+
+
+select top 1 idequipo,nombre,avg(puntos) from 
 (
-    select idequipo_local as idequipo,e.nombre, sum(marcador_local) as puntos from partidos
+    select idequipo_local as idequipo,e.nombre, avg(marcador_local) as puntos from partidos
     inner join Equipos e on e.idequipo = partidos.idequipo_local
     group by idequipo_local,e.nombre
 
     UNION ALL
 
-    select idequipo_visitante,e.nombre, sum(marcador_visitante) from partidos
+    select idequipo_visitante,e.nombre, avg(marcador_visitante) from partidos
     inner join Equipos e on e.idequipo = partidos.idequipo_visitante
     group by idequipo_visitante,e.nombre
 ) as t1
@@ -98,10 +127,12 @@ group by idequipo,nombre
 order by sum(puntos) desc
 --12.Equipos en los que ha jugado Ricky Rubio estos últimos años.
 
-Select e.nombre from JugadoresEquipos je
+Select e.nombre,j.nombre from JugadoresEquipos je
 inner join jugadores j on je.idjugador=j.idjugador
 inner join Equipos e on e.idequipo=je.idequipo
-where j.nombre like '%Rubio%'
+where j.nombre like '%Ricky Rubio%'
+
+
 --13.Equipo con más derrotas.
 select top 1 idequipo,nombre,sum(NumDerrotas) from 
 (
@@ -136,13 +167,16 @@ select * from jugadores where draft_anyo =
 )
 
 --16.Equipo con la media de edad mas alta de la NBA esta temporada.
-
-select top 1 avg(anyonacimiento),idequipo from jugadores group by idequipo
+select getdate(),year(getdate()),month(getdate()),day(getdate())
+select top 1 avg(anyonacimiento),idequipo,year(getdate())-avg(anyonacimiento) 
+from jugadores 
+group by idequipo
 order by avg(anyonacimiento)
 
 --17.¿Cuantos jugadores tienen un email de hotmail?
 
-select count(1) from jugadores where email like '%hotmail%'
+select count(1) from jugadores 
+where email like '%hotmail%'
 
 --18.top 20 Jugadores mas altos de la NBA. 
 --¿Sabrias como decirme el jugador más alto de cada equipo?
