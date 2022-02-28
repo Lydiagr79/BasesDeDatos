@@ -27,7 +27,7 @@
 --11.- Borra aquellos jugadores que no hayan jugado ningun partido.
 
 --12.- laliga decide expulsar al Real Madrid y Barcelona por tener el presupuesto hinchado.
-        -- Eliminalos de la bbdd. Borra todo lo estrictamente necesario.
+        -- Elimínalos de la bbdd. Borra todo lo estrictamente necesario.
 
 
  --13.-Al finalizar el segundo partido de tu equipo, cambias el entrenador. Actualiza el nombre del entrenador
@@ -35,3 +35,10 @@
 
  --14 Que cambio harias en la bbdd para poder guardar el historico de entrenadores de cada equipo? 
    -- haz los cambios en el DDL y luego actualiza la información de ese cambio de entrenador de tu equipo.
+
+
+--15 añade los resultados de algun partido de esta semana que no esté en la bbdd.
+
+
+--16 Crea una tabla Clasificación y vuelva en ella la clasificación de 
+--laliga a según los datos actuales de esta temporada.
