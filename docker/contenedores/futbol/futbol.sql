@@ -212,7 +212,7 @@ alter table partidos drop column stadium
 alter table partidos drop column referee
 alter table partidosjugadores drop column id
 alter table partidosjugadores drop column idCompeticion
-alter table partidosjugadores drop column idEquipo
+--alter table partidosjugadores drop column idEquipo
 update partidos set idGanador = idEquipoLocal where GolesLocales>GolesVisitantes 
 update partidos set idGanador = idEquipoVisitante where GolesLocales<GolesVisitantes 
 
