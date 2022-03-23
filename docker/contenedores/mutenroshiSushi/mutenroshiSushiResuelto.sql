@@ -9,6 +9,25 @@ select * from MenuSushi where idSushi=(select idsushi from Sushi where nombre='s
 )
 
 
+select * from MenuSushi
+
+    select p.idMenu, precio,sum(i.PrecioCosteIngrediente)+3 as preciocalculado from menu p
+    inner join MenuSushi pi on pi.idMenu=p.idMenu
+    inner join Sushi i on i.idSushi=pi.idsushi
+    group by p.idMenu,precio
+    having precio <sum(i.PrecioCosteIngrediente*pi.cantidad)+0.75
+begin tran
+update menu set precio = t1.preciocalculado + 0.75
+    from menu p 
+    inner join (
+    select p.idMenu, precio,sum(i.PrecioCosteIngrediente)+3 as preciocalculado from menu p
+    inner join MenuSushi pi on pi.idMenu=p.idMenu
+    inner join Sushi i on i.idSushi=pi.idsushi
+    group by p.idmenu,precio
+    having precio <sum(i.PrecioCosteIngrediente*pi.cantidad)+0.75) as t1 on t1.idmenu=p.idmenu
+rollback tran
+
+
 select * from Menu
 select * from clientes
 
