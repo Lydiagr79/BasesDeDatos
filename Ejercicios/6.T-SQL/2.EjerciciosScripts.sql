@@ -22,4 +22,4 @@
 --7.- La sucesión de Fibonacci se define de la siguiente forma: a1=1, a2=1 y an=an-1+an-2 para n>2, 
 --es decir los dos primeros son 1 y el resto cada uno es la suma de los dos anteriores, 
 --los primeros son: 1, 1, 2, 3, 5, 8, 13, 21, ... 
---Hacer un diagrama de flujo para calcular el 100 término de la sucesión.
+--calcular el 100 término de la sucesión.
