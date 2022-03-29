@@ -27,26 +27,33 @@
 --'El cliente Bernat, ha gastado 100€ en un total de 4 pedidos.'​
 
 
+----manipulando fechas----
 
+--11.- haz un procedimiento que imprima por pantalla una fecha aleatoria
+-- de la semana santa del 9 al 17 de abril.
+-- Para obtener un número aleatorio, usa la función:
 
+-- cast(RAND(CHECKSUM(NEWID())) * 10 as INT) siendo  10 el valor máximo -1
+-- que nos va a devolver. Nos devolverá un número de 0 a 9. probad: 
 
+declare @numeroAleatorio as int=  cast(RAND(CHECKSUM(NEWID())) * 10 as INT)
+print @numeroAleatorio
 
-
-
-
-
-
-create procedure holamundo
-AS
-BEGIN
-print 'hola mundo'
-END
-
-exec holamundo
-
-
-print len('dfgdfhdgndfghfdg fdgh dfg')
-
-
-
-
+--12 Serías capaz de hacer un procedure que dado un minuto aleatorio dentro de la
+-- semana santa nos dijera con un print cuantas procesiones hay en la calle?
+--imaginate que tienes esta bbdd y la tabla procesiones con toda la info.
+--haz que el procedimiento te diga: 
+-- 'El dia X a de abril a las xxh hay X procesiones en la calle'
+create database SemanaSantaSevilla
+GO
+use SemanaSantaSevilla
+go
+create table Procesiones(
+    id int identity(1,1) primary key,
+    nombre varchar(100) not null,
+    fechaSalida datetime not null,
+    fechaEntrada datetime not null
+) 
+declare @viernessanto as datetime ='4/15/2022'
+insert into Procesiones
+select 'Macarena',@viernessanto,dateadd(hour,13,@viernessanto)
