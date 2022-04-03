@@ -2,7 +2,30 @@
 
 --2-Crear un procedimiento almacenado que nos indique si un numero es primo o no.​
 
+
+declare @num as int= 13
+
+
+declare @contador as int = 2
+declare @esprimo as bit = 1
+while @contador<@num
+BEGIN 
+
+if(@num%@contador=0)
+    BEGIN
+     SET @esprimo=0
+    END
+SET @contador=@contador+1
+END
+
+IF @esprimo=1
+    PRINT CONCAT(@NUM,' ES UN NÚMERO PRIMO')
+ELSE
+    PRINT CONCAT(@NUM,' NO ES UN NÚMERO PRIMO')
 --3-Crear un procedimiento almacenado que nos devuelva los n primeros numeros de la sucesión de fibonacci.​
+
+--https://stackoverflow.com/questions/21746100/how-to-generate-fibonacci-series
+
 
 --4-Con adventureWorks, dame la lista de empleados de un departamento indicando el id del departamento.​
 
@@ -46,10 +69,10 @@ print @numeroAleatorio
 -- 'El dia X a de abril a las xxh hay X procesiones en la calle'
 create database SemanaSantaSevilla
 GO
-use SemanaSantaSevilla
+    use SemanaSantaSevilla
 go
 create table Procesiones(
-    id int identity(1,1) primary key,
+                id int identity(1,1) primary key,
     nombre varchar(100) not null,
     fechaSalida datetime not null,
     fechaEntrada datetime not null
