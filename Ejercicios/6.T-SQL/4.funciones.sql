@@ -16,6 +16,7 @@
 
         --NULL -> Cod postal no valido​
 
+
 --4.-(usar Arepezo) Crea un parse para los datos del cliente​. La función debe devolver 1 si es valido y 0 si no es valido.
     --A esta función le pasaremos el id del cliente y nos validará las siguientes cosas:
 
@@ -49,6 +50,4 @@
 
 --8.- Crear una función en la BBDD del arepazo que nos devuelva los 10 elementos del menu
 -- mas solicitados. Indicando en un campo, el numero de veces que se ha pedido.
-
-
 
