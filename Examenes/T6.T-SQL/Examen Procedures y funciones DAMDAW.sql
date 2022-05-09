@@ -51,9 +51,9 @@ BEGIN
     where idLibro=@id
 
     if @color=1
-    set @res = 0.6 + (@numPaginas)*0.06
+        set @res = 0.6 + (@numPaginas)*0.06
     else
-    set @res = 0.6 + (@numPaginas)*0.012
+        set @res = 0.6 + (@numPaginas)*0.012
 
     return @res
 END
@@ -66,30 +66,33 @@ go
 create or alter procedure rellenarprecios
 AS
 BEGIN
-
     update libros set precioVenta = dbo.calcularCosteProduccion(idLibro) + 1
-
 END
 
-
+EXEC rellenarprecios
 
 go
 create or alter procedure rellenarpreciosBonitos
 AS
 BEGIN
 
+    EXEC rellenarprecios
+    
     update libros set precioVenta = case when precioVenta<4.99 then 4.99 
         when precioventa >4.99 and precioVenta<9.99 then 9.99
         when precioventa >9.99 and precioVenta<14.99 then 14.99
-        when precioventa >4.99 and precioVenta<9.99 then 9.99
-        when precioventa >4.99 and precioVenta<9.99 then 9.99
+        when precioventa >14.99 and precioVenta<19.99 then 19.99
+        when precioventa >19.99 and precioVenta<24.99 then 24.99
+        when precioventa >19.99 and precioVenta<24.99 then 24.99
+        when precioventa >24.99 and precioVenta<29.99 then 29.99
+        ELSE precioVenta
+    end
 
-
-end
-
-    delete from libros where precioVenta >24.99 
+    delete from libros where precioVenta >29.99 
 
 END
+GO
+EXEC rellenarpreciosBonitos
 
-
+SELECT * FROM LIBROS
 

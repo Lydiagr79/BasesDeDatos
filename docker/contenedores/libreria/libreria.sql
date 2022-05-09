@@ -272,3 +272,30 @@ select * from pedidos
 update pedidos set Total=GastosEnvio+SubTotal
 
 
+
+
+-- consultas
+
+-- 1.- Dime los 20 libros con más paginas. Quiero saber el titulo y el peso.
+
+
+--2 obten el nombre, el telefono y el email del cliente que mas se ha gastado en la libreria
+
+
+--3 obten todos los libros de tamaño estandard.
+
+select * from libros where autores = 'J.R.R. Tolkien'
+--4 Quiero una lista con el nombre del cliente, la fecha del pedido, el id del pedido de todos 
+--los pedidos entregados en sevilla
+-- 5.-obten los pedidos que contengan más de 4 libros distintos
+
+--Modificaciones
+--1.- Añadete como cliente
+--2.- Añade un nuevo formato de libro extramini de dimensiones 9 de alto por 9 de ancho. y asignaselo a todos los libros de menos de 50 paginas
+--3.- Incrementa los precios de impresión fijos un 5%
+--4.- añade un pedido de un libro al cliente id 23 de todos los libros de J.R.R.Tolkien
+--5.- borra todos los libros que nadie haya pedido
+
+select * from libros
+-- Borra todos los libros que nadie haya comprado 
+
