@@ -21,3 +21,8 @@
 
 --crea un método que calcule el resultado AVG (Amarillo Verde Gris) 
 --y guarde el resultado en la tabla intentos
+
+--8 SOLO DAM DAW
+--   crea un trigger que cuando se inserte algo en la tabla intentos, 
+--   recoga la palabra intentada y calcule el resultado segun la palabra del 
+--   Después, deberá guardar en la tabla intentos ese resultado en otro campo
