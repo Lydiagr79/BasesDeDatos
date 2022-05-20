@@ -16,3 +16,8 @@
 --6.-Crea un método que me diga la posición de una letra en un varchar. 
 --Le pasaremos un varchar y una letra y nos devolverá la posición. 
 --Nos devolverá 0 o -1 si la letra no está en el varchar.
+
+--7 crea un método para ver si una letra está en una posición no VERDE en amarillo
+
+--crea un método que calcule el resultado AVG (Amarillo Verde Gris) 
+--y guarde el resultado en la tabla intentos
