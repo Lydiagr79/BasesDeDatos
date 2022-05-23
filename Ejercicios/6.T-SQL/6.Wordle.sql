@@ -19,10 +19,17 @@
 
 --7 crea un método para ver si una letra está en una posición no VERDE en amarillo
 
---crea un método que calcule el resultado AVG (Amarillo Verde Gris) 
+--8 crea un método que calcule el resultado AVG (Amarillo Verde Gris) 
 --y guarde el resultado en la tabla intentos
 
---8 SOLO DAM DAW
---   crea un trigger que cuando se inserte algo en la tabla intentos, 
+--9 SOLO DAM DAW
+--   crea un trigger que cuando se inserte 1 intento en la tabla intentos, 
 --   recoga la palabra intentada y calcule el resultado segun la palabra del 
 --   Después, deberá guardar en la tabla intentos ese resultado en otro campo
+
+
+--10 SOLO DAM DAW
+-- mejora el trigger anterior para que funcione con inserts de más de una linea.
+
+--11 SOLO DAM DAW
+-- haz una función que te de un CSV de la tabla jugadores con las estadisticas de cada jugador. Nombre, num partidas, media de intentos y % de palabras acertadas.
