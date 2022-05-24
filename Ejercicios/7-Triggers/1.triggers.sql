@@ -16,3 +16,12 @@ use books
 
 --7. En el Arepezo, tenemos una tabla Correos. Haz un trigger para que cada vez que se modifique el codPostal, se modifique el campo provincia. Los dos primeros digitos del 
 --cod postal indican la provincia. En la tabla Correos, tenemos los dos primeros digitos de cada provincia.
+
+---Cursores
+--8 Crea una función que devuelva una cadena con todos los emails de la tabla clientes separados por , ​
+--Vamos a complicar el ejercicio anterior. Quiero que devuelva una tupla por cada email encontrado en la tabla clientes. Una tupla formada por el email y el numero de pedidos que ha --realizado el cliente separados por |. Tiene que devolver algo asi: ​
+​​
+--Pepe@gmail.com|23, angeles@yahoo.es|5, …​
+
+
+--9.- crea un trigger como el del ejercicio 3 pero que tenga en cuenta que la tabla inserted puede tener mas de un valor ( añade un cursor sobre la tabla inserted)

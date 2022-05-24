@@ -33,3 +33,7 @@
 
 --11 SOLO DAM DAW
 -- haz una función que te de un CSV de la tabla jugadores con las estadisticas de cada jugador. Nombre, num partidas, media de intentos y % de palabras acertadas.
+
+
+
+
